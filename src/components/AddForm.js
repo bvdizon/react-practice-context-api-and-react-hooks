@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
-import { BookContext } from '../context/book-context';
+import { useBookContext } from '../context/book-context';
 
 const AddForm = () => {
-  const { books, dispatch } = useContext(BookContext);
+  const { books, dispatch } = useBookContext();
 
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');

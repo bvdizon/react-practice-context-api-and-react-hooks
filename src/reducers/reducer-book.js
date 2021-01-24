@@ -15,11 +15,13 @@ const reducerBook = (state, action) => {
         return {
           ...state,
           books: updateBooks,
+          alert: { show: true, message: 'Edit(s) on book is now saved' },
         };
       } else {
         return {
           ...state,
           books: [...state.books, action.payload.book],
+          alert: { show: true, message: 'New book has been added.' },
         };
       }
 
@@ -29,6 +31,13 @@ const reducerBook = (state, action) => {
       return {
         ...state,
         books: filteredBooks,
+        alert: { show: true, message: "You've deleted a book." },
+      };
+
+    case 'CLOSE_ALERT':
+      return {
+        ...state,
+        alert: { show: false, message: '' },
       };
 
     default:
